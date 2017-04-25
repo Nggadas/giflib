@@ -1,33 +1,30 @@
 package com.aidb.giflib.controller;
 
+import com.aidb.giflib.data.GifRepository;
+import com.aidb.giflib.model.Gif;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.time.LocalDate;
 
 @Controller
 public class GifController {
+    @Autowired
+    private GifRepository gifRepository;
+
     @RequestMapping("/")
     public String listGifs(){
         return "home";
     }
 
-    @RequestMapping("/categories")
-    public String categories(){
-        return "categories";
-    }
-
-    @RequestMapping("/category")
-    public String category(){
-        return "category";
-    }
-
-    @RequestMapping("/favorites")
-    public String favorites(){
-        return "favorites";
-    }
-
-    @RequestMapping("/gif-details")
-    public String gifDetails(){
+    @RequestMapping("/gif/{name}")
+    public String gifDetails(@PathVariable String name, ModelMap modelMap){
+        Gif gif = gifRepository.findByName(name);
+        modelMap.put("gif", gif);
         return "gif-details";
     }
+
 }

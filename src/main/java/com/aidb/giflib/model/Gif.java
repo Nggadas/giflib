@@ -5,13 +5,13 @@ import java.time.LocalDate;
 public class Gif {
     private String name;
     private LocalDate dateUploaded;
-    private String usernamel;
+    private String username;
     private boolean favorite;
 
-    public Gif(String name, LocalDate dateUploaded, String usernamel, boolean favorite) {
+    public Gif(String name, LocalDate dateUploaded, String username, boolean favorite) {
         this.name = name;
         this.dateUploaded = dateUploaded;
-        this.usernamel = usernamel;
+        this.username = username;
         this.favorite = favorite;
     }
 
@@ -31,12 +31,12 @@ public class Gif {
         this.dateUploaded = dateUploaded;
     }
 
-    public String getUsernamel() {
-        return usernamel;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUsernamel(String usernamel) {
-        this.usernamel = usernamel;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public boolean isFavorite() {
